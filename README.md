@@ -45,6 +45,5 @@ The purpose of the project is understanding what songs users are listening and a
 ``` sql
     SELECT Count(*) agent_count, user_agent FROM SongPlays
     GROUP BY user_agent
-    ORDER BY 1 DESC
     
 ```
