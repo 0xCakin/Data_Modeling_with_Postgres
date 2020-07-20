@@ -44,7 +44,7 @@ time_table_create = """
     CREATE TABLE IF NOT EXISTS time (time_start bigint NOT NULL, 
                                      hour int,
                                      day int, 
-                                     week int, 
+                                     weekofyear int, 
                                      month int,
                                      year int, 
                                      weekday int) """
