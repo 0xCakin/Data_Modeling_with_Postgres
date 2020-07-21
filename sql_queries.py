@@ -55,7 +55,7 @@ songplay_table_insert = """ INSERT INTO songplays (song_id, artist_id, time_star
 # USERS Table Insert Statement
 user_table_insert = """ INSERT INTO users (user_id, first_name, last_name, gender, level)
                         VALUES (%s, %s, %s, %s, %s)
-                        ON CONFLICT (user_id) DO NOTHING """
+                        ON CONFLICT (user_id) DO UPDATE SET level = EXCLUDED.level
 # Songs Table Insert Statament
 song_table_insert = """ INSERT INTO songs (song_id, title, artist_id, year, duration)
                         VALUES (%s, %s, %s, %s, %s)
@@ -69,7 +69,7 @@ time_table_insert = """ INSERT INTO time (time_start, hour, day, weekofyear, mon
                         VALUES (%s, %s, %s, %s, %s, %s, %s) """
 # FIND SONGS
 # Song Select Statament
-song_select = """ SELECT song_id, artist_id
+song_select = """ SELECT songs.song_id, artists.artist_id
                    FROM songs 
                    JOIN artists 
                    ON songs.artist_id = artists.artist_id
