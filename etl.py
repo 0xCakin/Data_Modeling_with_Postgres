@@ -6,6 +6,11 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Function to read a song file and insert a record into songs and artists tables
+    :param str filepath: the filepath of a song data
+    cur (psycopg2 Cursor Object)
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
